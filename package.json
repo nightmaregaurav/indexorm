@@ -1,6 +1,5 @@
 {
   "name": "@nightmaregaurav/indexorm",
-  "private": "false",
   "version": "0.1.0",
   "description": "IndexORM is a library that allows you to define classes that can be stored and retrieved from a data storage in a relational way. It is designed to mimic the behavior of a relational database ORM, but it is designed with Indexed storages like IndexedDB, LocalStorage, etc. in mind.",
   "license": "MIT",
