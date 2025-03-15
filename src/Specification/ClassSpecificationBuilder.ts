@@ -5,7 +5,6 @@ import {
   NonRelationalPropertiesIn,
   PotentialEntityIdentifierIn,
   PotentialRelationalEntityIdentifierIn,
-  RelationalClassesIn,
   SingularRelationalPropertiesIn
 } from "../types";
 
@@ -80,8 +79,8 @@ export default class ClassSpecificationBuilder<T extends PlainObject> {
    * @remarks This method can be called multiple times to register multiple properties.
    * @remarks Related identifier is automatically registered as non-relational property while calling this method.
    */
-  public hasOne<TT extends RelationalClassesIn<T>>(
-    property: SingularRelationalPropertiesIn<T>,
+  public hasOne<U extends SingularRelationalPropertiesIn<T>, TT extends T[U]>(
+    property: U,
     relatedClass: Class<TT>,
     correspondingIdentifierProperty: PotentialRelationalEntityIdentifierIn<T>
   ): ClassSpecificationBuilder<T> {
@@ -112,8 +111,8 @@ export default class ClassSpecificationBuilder<T extends PlainObject> {
    * @throws An error if the property has already been registered.
    * @remarks This method can be called multiple times to register multiple properties.
    */
-  public hasMany<TT extends RelationalClassesIn<T>>(
-    property: CollectionRelationalPropertiesIn<T>,
+  public hasMany<U extends CollectionRelationalPropertiesIn<T>, TT extends T[U][0]>(
+    property: U,
     relatedClass: Class<TT>,
     correspondingIdentifierProperty: PotentialRelationalEntityIdentifierIn<TT>
   ): ClassSpecificationBuilder<T> {
