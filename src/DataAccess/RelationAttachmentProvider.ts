@@ -3,6 +3,7 @@ import ClassSpecification from "../Specification/ClassSpecification";
 import Repository from "./Repository";
 import ClassSpecificationRegistry from "../Specification/ClassSpecificationRegistry";
 import DataDriver from "../DataDriver/DataDriver";
+import {Shadow} from "../Shadow";
 
 /** @internal */
 export default class RelationAttachmentProvider {
@@ -21,7 +22,7 @@ export default class RelationAttachmentProvider {
     includeContext: PlainObject
   ): Promise<T> {
     const relationalProperties = classSpecification.relationalProperties;
-    const attachedData: PlainObject = {...data};
+    const attachedData: PlainObject = Shadow.for(data, classSpecification.relationalProperties.map(x => x.name));
     for(const includeKey in includeContext){
       const relationalProperty = relationalProperties
         .find(x => x.name === includeKey);
