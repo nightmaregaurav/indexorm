@@ -1,6 +1,7 @@
 import IDriver from "./IDriver";
 import { EntityIdentifierType } from "../types";
 import {ClassSpecificationRegistry} from "../../index";
+import { PlainObject } from "@nightmaregaurav/ts-utility-types";
 
 /** A class that provides access to data driver functionality. */
 export default class DataDriver {
@@ -18,6 +19,21 @@ export default class DataDriver {
     return DataDriver._instance;
   }
 
+  /** Gets all data from the data source.
+   * @returns All data from the data source.
+   */
+  public static dumpAll(): Promise<PlainObject> {
+    return DataDriver.instance.dumpAll();
+  }
+
+  /** Loads all data into the data source.
+   * @param data The data to load into the data source.
+   * @returns True if the data was loaded successfully, otherwise false.
+   */
+  public static loadAll(data: PlainObject): Promise<boolean> {
+    return DataDriver.instance.loadAll(data);
+  }
+
   /** Configures the data driver.
    * @param driver The data driver to use.
    */
@@ -28,7 +44,7 @@ export default class DataDriver {
   /** Retrieves the key for the table index.
    * @param tableName The name of the table.
    * @returns The key for the table index.
-   * @private
+   * @internal
    */
   private static getTableIndexKey(tableName: string): string {
     return ':' +
@@ -43,7 +59,7 @@ export default class DataDriver {
    * @param destinationIdPropertyNameOnSourceTable The name of the destination id property on the source table.
    * @param destinationIdOnSourceTable The id of the destination on the source table.
    * @returns The key for the relation index.
-   * @private
+   * @internal
    */
   private static getRelationIndexKey(
     destinationTableName: string,

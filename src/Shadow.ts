@@ -1,4 +1,10 @@
+/** A class that creates a shadow object for a class which can modify the behavior of the properties of the class. */
 export class Shadow {
+  /** Creates a shadow object for a class which can modify the behavior of the properties of the class.
+   * @param source The object to create a shadow for.
+   * @param navigationalProperties The properties that are not loaded at the time of creation.
+   * @returns A shadow object for the class.
+   */
   public static for<T extends {}>(
     source: T,
     navigationalProperties: (keyof T)[]

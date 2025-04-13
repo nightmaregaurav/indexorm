@@ -297,7 +297,7 @@ person2.address = [address4, address5];
 // Backup.ts
 import {DataDriver} from "@nightmaregaurav/indexorm";
 
-const dump = await DataDriver.instance.dumpAll();
+const dump = await DataDriver.dumpAll();
 // do whatever you want with dump
 ```
 ```typescript
@@ -305,7 +305,7 @@ const dump = await DataDriver.instance.dumpAll();
 import {DataDriver} from "@nightmaregaurav/indexorm";
 
 // get dump from somewhere
-await DataDriver.instance.loadAll(dump);
+await DataDriver.loadAll(dump);
 ```
 
 ## How to Contribute

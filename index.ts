@@ -9,6 +9,7 @@ import ClassSpecification from "./src/Specification/ClassSpecification";
 import ClassSpecificationBuilder from "./src/Specification/ClassSpecificationBuilder";
 import ClassSpecificationRegistry from "./src/Specification/ClassSpecificationRegistry";
 import RelationalProperty from "./src/Specification/RelationalProperty";
+import {Shadow} from "./src/Shadow";
 
 export * from "./src/types";
 export {
@@ -22,5 +23,6 @@ export {
   ClassSpecification,
   ClassSpecificationBuilder,
   ClassSpecificationRegistry,
-  RelationalProperty
+  RelationalProperty,
+  Shadow,
 };

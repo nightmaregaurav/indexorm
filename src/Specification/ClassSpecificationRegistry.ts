@@ -3,7 +3,9 @@ import ClassSpecification from "./ClassSpecification";
 
 /** Registry for class specifications. */
 export default class ClassSpecificationRegistry {
-  /** Object to store class specifications */
+  /** Object to store class specifications
+   * @internal 
+   */
   private static readonly specifications: PlainObject = {};
   
   /**

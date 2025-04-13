@@ -12,10 +12,14 @@ import {
  * @typeparam T The type of the class to create a specification for. 
  */
 export default class ClassSpecificationBuilder<T extends PlainObject> {
-  /** The specification being built. */
+  /** The specification being built.
+   * @internal 
+   */
   private readonly specification: ClassSpecification<T> = new ClassSpecification<T>();
   
-  /** Whether the table name has been manually set. */
+  /** Whether the table name has been manually set.
+   * @internal
+   */
   private isNameManuallySet: boolean = false;
 
   constructor(_class: Class<T>) {
