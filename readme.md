@@ -29,7 +29,7 @@ export class Person {
   id: string;
   name: string;
   age: number;
-  address: Address[]; // Never define a related property as nullable or optional
+  address: Address[]; // Never define a related collection property as nullable or optional
 }
 ```
 ```typescript
@@ -40,8 +40,8 @@ export class Address {
   id: string;
   street: string;
   city: string;
-  personId: string;
-  person: Person;  // Never define a related property as nullable or optional
+  personId: string;  // Optional property's Id can be defined as nullable
+  person: Person;  // Optional property can be defined as nullable
 }
 ```
 
